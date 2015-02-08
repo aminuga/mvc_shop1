@@ -1,0 +1,40 @@
+﻿@model List<Domain.Sale>
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Shopping</h2>
+@using (Html.BeginForm())
+{
+    <p><strong>Note:</strong> Choose your item and its weight to buy.</p>
+
+    <span>Item:</span>
+    <input list="Items" name="Item">
+    <datalist id="Items">
+        <option value="Onion">
+        <option value="Potato">
+        <option value="Tomato">
+        <option value="Garlic">
+        <option value="Apple">
+        <option value="Orange">
+        <option value="Banana">
+    </datalist>
+
+    <span>Weight:</span>
+    <input type="text" name="Weight" />
+
+    <span>Customer:</span>
+    //@Html.DropDownList("customerId", Model.Select(x => new SelectListItem { Text = x.Customer.ToString(), Value = x.CustomerId.ToString() }));
+    @Html.DropDownList("customerId", (ViewBag.Customers as List<Domain.Customer>).Select(x => new SelectListItem { Text = x.Name, Value = x.CustomerId.ToString() }));
+    @*<select>
+        @foreach (var custormer in ViewBag.Customers)
+            <option value="custormer">custormer</option>
+    </select>*@
+
+
+    <button type="submit" onclick=>Buy</button>
+    <br />
+    <br />
+    @Html.ActionLink("Add Customer", "../Customers/Add");
+}

@@ -1,0 +1,33 @@
+﻿@model List<Domain.Sale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table border="1">
+    <tr>
+        <th>Fruit</th>
+        <th>Weight</th>
+        <th>Customer</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
+    @foreach (var sale in Model)
+    {
+        <tr>
+            <td>@sale.Item</td>
+            <td>@sale.Weight</td>
+            <td>
+                @*@using (var context = new Domain.MyContext())
+                    {
+                        var customer = context.Customers.Single(x => x.CustomerId == sale.CustomerId);
+                        @customer.CustomerName
+                    }*@@sale.Customer.Name
+                </td>
+                <td>@sale.DateTime.Date</td>
+                <td>@sale.DateTime.TimeOfDay</td>
+            </tr>
+    }
+</table>
+</br>
+@Html.ActionLink("Add Fruit", "Add");

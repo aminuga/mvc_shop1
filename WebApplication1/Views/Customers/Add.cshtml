@@ -1,0 +1,38 @@
+﻿@model Domain.Customer
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Customers Setting</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <p><strong>Note:</strong> You can add customers here.</p>
+
+    @Html.LabelFor(x => x.Name)
+    @Html.TextBoxFor(x => x.Name)
+    @Html.LabelFor(x => x.NationalId)
+    @Html.TextBoxFor(x => x.NationalId)
+    <button type="submit" onclick=>Add</button>
+    <br />
+
+    <table border="1">
+        <tr>
+            <th>Customer ID</th>
+            <th>Customer</th>
+            <th>National ID</th>
+        </tr>
+        @foreach (var customer in ViewBag.Customers)
+        {
+            <tr>
+                <td>@customer.CustomerId</td>
+                <td>@customer.Name</td>
+                <td>@customer.NationalId</td>
+            </tr>
+        }
+    </table>
+    <br />
+    @Html.ActionLink("Add Sale", "../Sales/Add");
+}
