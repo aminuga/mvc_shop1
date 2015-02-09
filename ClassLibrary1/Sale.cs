@@ -9,7 +9,8 @@ namespace Domain
 	public class Sale
 	{
 		public int SaleId { get; set; }
-		public string Item { get; set; }
+		public int ItemId { get; set; }
+		public Item Item { get; set; }
 		public float UnitPrice { get; set; }
 		public float Weight { get; set; }
 		public int CustomerId { get; set; }

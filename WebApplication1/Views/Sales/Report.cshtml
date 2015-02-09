@@ -1,42 +1,38 @@
 ﻿@model List<Domain.Sale>
 
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
 }
 
 var sum=10;
 
 <table border="1">
-    <tr>
-        <th>Item</th>
-        <th>Unit Price</th>
-        <th>Weight</th>
-        <th>Total Price</th>
-        <th>Customer</th>
-        <th>Date</th>
-        <th>Time</th>
-    </tr>
-    @foreach (var sale in Model)
-    {
-        <tr>
-            <td>@sale.Item</td>
-            <td>@sale.UnitPrice</td>
-            <td>@sale.Weight</td>
-            <td>@(sale.Weight*sale.UnitPrice)</td>
-            <td>@sale.Customer.Name
-            <td>@sale.DateTime.Date.ToShortDateString()</td>
-            <td>@sale.DateTime.TimeOfDay</td>
-        </tr>
-    }
-    <tr>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        <td>@a</td>
-        <td>x</td>
-        <td>x</td>
-        <td>x</td>
-        </tr>
+	<tr>
+		<th>Item</th>
+		<th>Unit Price</th>
+		<th>Weight</th>
+		<th>Total Price</th>
+		<th>Customer</th>
+		<th>Date</th>
+		<th>Time</th>
+	</tr>
+	@foreach (var sale in Model)
+	{
+		<tr>
+			<td>@sale.Item.Name</td>
+			<td>@sale.UnitPrice</td>
+			<td>@sale.Weight</td>
+			<td>@(sale.Weight * sale.UnitPrice)</td>
+			<td>@sale.Customer.Name
+			<td>@sale.DateTime.Date.ToShortDateString()</td>
+			<td>@sale.DateTime.TimeOfDay</td>
+		</tr>
+	}
+	<tr>
+		<td colspan="3">Sum:</td>
+		<td>@ViewBag.Total</td>
+		<td colspan="3">&nbsp;</td>
+	</tr>
 </table>
 </br>
 @Html.ActionLink("Add Sale", "Add");

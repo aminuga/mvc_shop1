@@ -1,31 +1,31 @@
 ﻿@model List<Domain.Sale>
 
 @{
-    ViewBag.Title = "Add";
+	ViewBag.Title = "Add";
 }
 
 <h2>Sale</h2>
 @using (Html.BeginForm())
 {
-    <p><strong>Note:</strong> Choose your item and its weight to buy.</p>
+	<p><strong>Note:</strong> Choose your item and its weight to buy.</p>
 
-    <span>Item:</span>
-    @Html.DropDownList("Item", (ViewBag.Items as List<Domain.Item>).Select(x => new SelectListItem { Text = x.Name, Value = x.ItemId.ToString() }));
+	<span>Item:</span>
+	@Html.DropDownList("ItemId", (ViewBag.Items as List<Domain.Item>).Select(x => new SelectListItem { Text = x.Name, Value = x.ItemId.ToString() }));
 
-    <span>UnitPrice:</span>
-    @Html.DropDownList("UnitPrice", (ViewBag.Items as List<Domain.Item>).Select(x => new SelectListItem { Text = x.UnitPrice.ToString(), Value = x.UnitPrice.ToString() }));
+	<span>UnitPrice:</span>
+	@Html.DropDownList("UnitPrice", (ViewBag.Items as List<Domain.Item>).Select(x => new SelectListItem { Text = x.UnitPrice.ToString(), Value = x.UnitPrice.ToString() }));
 
-    <span>Weight:</span>
-    <input type="text" name="Weight" />
+	<span>Weight:</span>
+	<input type="text" name="Weight" />
 
-    <span>Customer:</span>
-    @Html.DropDownList("CustomerId", (ViewBag.Customers as List<Domain.Customer>).Select(x => new SelectListItem { Text = x.Name, Value = x.CustomerId.ToString() }));
+	<span>Customer:</span>
+	@Html.DropDownList("CustomerId", (ViewBag.Customers as List<Domain.Customer>).Select(x => new SelectListItem { Text = x.Name, Value = x.CustomerId.ToString() }));
 
-    <button type="submit" onclick=>Buy</button>
-    <br />
-    <br />
-    @Html.ActionLink("Add Customer", "../Customers/Add");
-    <br />
-    <br />
-    @Html.ActionLink("Add Item", "../Items/Add");
+	<button type="submit">Buy</button>
+	<br />
+	<br />
+	@Html.ActionLink("Add Customer", "../Customers/Add");
+	<br />
+	<br />
+	@Html.ActionLink("Add Item", "../Items/Add");
 }

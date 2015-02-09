@@ -10,6 +10,6 @@ namespace Domain
 	{
 		public int CustomerId { get; set; }
 		public string Name { get; set; }
-		public string NationalId { get; set; }
+		public string NationalCode { get; set; }
 	}
 }

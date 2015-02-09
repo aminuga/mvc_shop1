@@ -27,7 +27,7 @@ namespace WebApplication1.Controllers
             {
                 var customers = context.Customers.ToList();
                 ViewBag.Customers = customers;
-                var customerWithSameNationalCode = context.Customers.SingleOrDefault(x => x.NationalId == customer.NationalId);
+                var customerWithSameNationalCode = context.Customers.SingleOrDefault(x => x.NationalCode == customer.NationalCode);
                 context.Customers.Add(customer);
                 context.SaveChanges();
             }
