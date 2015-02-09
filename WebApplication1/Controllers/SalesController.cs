@@ -26,18 +26,20 @@ namespace WebApplication1.Controllers
             {
                 var sales = context.Sales.ToList();
                 ViewBag.Customers = context.Customers.ToList();
+                ViewBag.Items = context.Items.ToList();
                 return View();
             }
         }
 
         [HttpPost]
-        public ActionResult Add(string Item, int Weight, int CustomerId)
+        public ActionResult Add(string Item, float UnitPrice, int Weight, int CustomerId)
         {
             using (var context=new MyContext())
             {
                 var item = context.Sales.Create();
                 item.Item = Item;
                 item.Weight = Weight;
+                item.UnitPrice = UnitPrice;
                 item.CustomerId = CustomerId;
                 item.DateTime = DateTime.Now;
                 context.Sales.Add(item);

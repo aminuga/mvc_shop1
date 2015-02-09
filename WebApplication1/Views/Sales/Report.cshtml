@@ -4,10 +4,14 @@
     ViewBag.Title = "Index";
 }
 
+var sum=10;
+
 <table border="1">
     <tr>
-        <th>Fruit</th>
+        <th>Item</th>
+        <th>Unit Price</th>
         <th>Weight</th>
+        <th>Total Price</th>
         <th>Customer</th>
         <th>Date</th>
         <th>Time</th>
@@ -16,18 +20,23 @@
     {
         <tr>
             <td>@sale.Item</td>
+            <td>@sale.UnitPrice</td>
             <td>@sale.Weight</td>
-            <td>
-                @*@using (var context = new Domain.MyContext())
-                    {
-                        var customer = context.Customers.Single(x => x.CustomerId == sale.CustomerId);
-                        @customer.CustomerName
-                    }*@@sale.Customer.Name
-                </td>
-                <td>@sale.DateTime.Date</td>
-                <td>@sale.DateTime.TimeOfDay</td>
-            </tr>
+            <td>@(sale.Weight*sale.UnitPrice)</td>
+            <td>@sale.Customer.Name
+            <td>@sale.DateTime.Date.ToShortDateString()</td>
+            <td>@sale.DateTime.TimeOfDay</td>
+        </tr>
     }
+    <tr>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+        <td>@a</td>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+        </tr>
 </table>
 </br>
-@Html.ActionLink("Add Fruit", "Add");
+@Html.ActionLink("Add Sale", "Add");

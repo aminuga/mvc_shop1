@@ -1,0 +1,38 @@
+﻿@model Domain.Item
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Items Setting</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <p><strong>Note:</strong> You can add items here.</p>
+
+    @Html.LabelFor(x => x.Name)
+    @Html.TextBoxFor(x => x.Name)
+    @Html.LabelFor(x => x.UnitPrice)
+    @Html.TextBoxFor(x => x.UnitPrice)
+    <button type="submit" onclick=>Add</button>
+    <br />
+
+    <table border="1">
+        <tr>
+            <th>Item ID</th>
+            <th>Item</th>
+            <th>Unit Price</th>
+        </tr>
+        @foreach (var item in ViewBag.Items)
+        {
+            <tr>
+                <td>@item.ItemId</td>
+                <td>@item.Name</td>
+                <td>@item.UnitPrice</td>
+            </tr>
+        }
+    </table>
+    <br />
+    @Html.ActionLink("Add Sale", "../Sales/Add");
+}
