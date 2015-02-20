@@ -1,0 +1,25 @@
+﻿@model List<WebApplication1.Models.ItemSaleModel>
+@{
+    ViewBag.Title = "ItemSale";
+}
+
+<h2>ItemSale</h2>
+
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Purchase Count</th>
+        <th>Total Weight</th>
+        <th>Total Price</th>
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.ItemName</td>
+            <td>@d.PurchaseCount</td>
+            <td>@d.TotalWeight</td>
+            <td>@d.TotalPrice</td>
+        </tr>
+    }
+</table>
