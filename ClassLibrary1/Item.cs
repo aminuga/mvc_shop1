@@ -11,5 +11,6 @@ namespace Domain
 		public int ItemId { get; set; }
 		public string Name { get; set; }
 		public float UnitPrice { get; set; }
+		public string FileName { get; set; }
 	}
 }

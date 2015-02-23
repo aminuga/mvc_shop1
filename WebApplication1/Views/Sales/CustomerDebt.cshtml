@@ -2,24 +2,25 @@
 @{
     ViewBag.Title = "CustomerDebt";
 }
+<div class="panel panel-default">
 
-<h2>CustomerDebt</h2>
+	<div class="panel-heading">CustomerDebt</div>
 
-
-<table border="1">
-	<tr>
-		<th>Name</th>
-		<th>Purchase Count</th>
-		<th>Total Weight</th>
-		<th>Total Price</th>
-	</tr>
-	@foreach(var d in Model)
-	{
+	<table border="1">
 		<tr>
-			<td>@d.CustomerName</td>
-			<td>@d.PurchaseCount</td>
-			<td>@d.TotalWeight</td>
-			<td>@d.TotalPrice</td>
+			<th>Name</th>
+			<th>Purchase Count</th>
+			<th>Total Weight</th>
+			<th>Total Price</th>
 		</tr>
-	}
-</table>
+		@foreach (var d in Model)
+		{
+			<tr>
+				<td>@d.CustomerName</td>
+				<td>@d.PurchaseCount</td>
+				<td>@d.TotalWeight</td>
+				<td>@d.TotalPrice</td>
+			</tr>
+		}
+	</table>
+</div>
