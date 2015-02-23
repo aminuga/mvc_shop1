@@ -1,4 +1,6 @@
 ﻿body {
+	background-color:black;
+	color:white;
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -21,4 +23,24 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+th{
+	background-color:yellow;
+}
+
+th:hover{
+	background-color:pink;
+}
+
+td{
+	text-align:center;
+}
+
+.panel{
+	background-color:black
+}
+
+.panel-heading{
+	background-color:black;
 }

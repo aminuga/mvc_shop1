@@ -1,38 +1,40 @@
 ﻿@model Domain.Item
 
 @{
-    ViewBag.Title = "Add";
+	ViewBag.Title = "Add";
 }
 
 <h2>Items Setting</h2>
-@using (Html.BeginForm())
+@using (Html.BeginForm("Add", "Items", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.ValidationSummary()
+	@Html.ValidationSummary()
 
-    <p><strong>Note:</strong> You can add items here.</p>
+	<p><strong>Note:</strong> You can add items here.</p>
 
-    @Html.LabelFor(x => x.Name)
-    @Html.TextBoxFor(x => x.Name)
-    @Html.LabelFor(x => x.UnitPrice)
-    @Html.TextBoxFor(x => x.UnitPrice)
-    <button type="submit" onclick=>Add</button>
-    <br />
+	@Html.LabelFor(x => x.Name)
+	@Html.TextBoxFor(x => x.Name)
+	@Html.LabelFor(x => x.UnitPrice)
+	@Html.TextBoxFor(x => x.UnitPrice)
+	@Html.LabelFor(x => x.FileName)
+	<input type="file" name="imageFile" />
+	<button type="submit">Add</button>
+	<br />
 
-    <table border="1">
-        <tr>
-            <th>Item ID</th>
-            <th>Item</th>
-            <th>Unit Price</th>
-        </tr>
-        @foreach (var item in ViewBag.Items)
-        {
-            <tr>
-                <td>@item.ItemId</td>
-                <td>@item.Name</td>
-                <td>@item.UnitPrice</td>
-            </tr>
-        }
-    </table>
-    <br />
-    @Html.ActionLink("Add Sale", "../Sales/Add");
+	<table border="1">
+		<tr>
+			<th>Item ID</th>
+			<th>Item</th>
+			<th>Unit Price</th>
+		</tr>
+		@foreach (var item in ViewBag.Items)
+		{
+			<tr>
+				<td>@item.ItemId</td>
+				<td>@item.Name</td>
+				<td>@item.UnitPrice</td>
+			</tr>
+		}
+	</table>
+	<br />
+	@Html.ActionLink("Add Sale", "../Sales/Add");
 }
